@@ -84,7 +84,6 @@ span {
 }
 h1,
 h2,
-h3,
 h4,
 h5,
 h6 {
@@ -2111,20 +2110,75 @@ section,
 
 
 /* الزر  */
-/* From Uiverse.io by Navarog21 */ 
-button {
-  position: relative;
-  width: 11em;
-  height: 4em;
-  outline: none;
-  transition: 0.1s;
-  background-color: transparent;
-  border: none;
-  font-size: 13px;
-  font-weight: bold;
-  color: #ddebf0;
-      margin-right: 40px;
+
+/* تنسيق الزر الكبير (حمل التطبيق) */
+button:not(.lang-btn) {
+    position: relative;
+    width: 11em;
+    height: 4em;
+    outline: none;
+    transition: 0.1s;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ddebf0;
+    cursor: pointer;
+    margin: 0; /* لا تترك مسافات إضافية */
 }
+
+/* حاوية العناصر اليمنى */
+.right-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* مسافة بين زر اللغة وزر التطبيق */
+    justify-content: flex-end; /* الزر الكبير يمين زر اللغة */
+}
+
+/* زر اللغة */
+.language-dropdown {
+    position: relative; /* أساس للقائمة المنسدلة */
+}
+
+    .language-dropdown button.lang-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        width: auto;
+        height: auto;
+        margin: 0;
+    }
+
+    /* قائمة اللغات */
+    .language-dropdown ul {
+        display: none;
+        position: absolute;
+        top: 120%; /* أسفل زر اللغة */
+        left: 30px; /* تزح يمين */
+        background: #222;
+        color: white;
+        list-style: none;
+        padding: 10px 15px;
+        margin: 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+
+        .language-dropdown ul li {
+            margin: 8px 0;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+            .language-dropdown ul li:hover {
+                background: #444;
+            }
+
 
 #clip {
   --color: #2761c3;
